@@ -1,6 +1,6 @@
 <?php
 
-    include 'banco.php';
+    include 'banco_aluno.php';
 
 
 

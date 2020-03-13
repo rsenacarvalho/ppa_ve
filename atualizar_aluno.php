@@ -31,7 +31,7 @@
                     <th colspan='2' style='text-align: center'>Ações</th>
                 </tr>
                 <?php
-                include 'banco.php';
+                include 'banco_aluno.php';
                 $result = get_usuarios();
                 foreach ($result as $linha) {
                     echo '<tr>';
@@ -54,7 +54,7 @@
                 ?>
             </table>
 
-            <a class="linkNovo" href="index.html">Novo Usuário</a>
+            <a class="linkNovo" href="form_aluno.html">Novo Usuário</a>
         </div>
 
     </body>

@@ -17,5 +17,7 @@
         $id_curso = 3;
     }
 
-    include 'banco.php';    
-    cadastrar_aluno($nome, $email, $id_turma,$id_curso, $ano_letivo, $sexo, $telefone, $num_matricula);
+    
+
+    include 'banco_aluno.php';    
+    atualizar_aluno($nome, $email, $id_turma,$id_curso, $ano_letivo, $sexo, $telefone, $num_matricula);

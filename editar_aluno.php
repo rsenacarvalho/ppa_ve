@@ -14,7 +14,7 @@
     <h2> Alterar informações do usuário</h2>
     <div>
         <?php
-        include 'banco.php';
+        include 'banco_aluno.php';
         $num_matricula = filter_input(INPUT_GET, 'num_matricula', FILTER_SANITIZE_NUMBER_INT);
 
         $result = get_usuario($num_matricula);
@@ -22,7 +22,7 @@
         $linha = $result[0];
 
         ?>
-        <form method="POST" action="editar.php">
+        <form method="POST" action="editar__aluno.php">
             <h3>Número de Matricula:</h3>
             <br>
             <input type="number" readonly="true" value="<?php echo $linha['num_matricula'];  ?>" name="num_matricula" id="num_matricula" class="campo">

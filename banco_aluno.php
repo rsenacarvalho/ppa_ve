@@ -20,7 +20,7 @@ function cadastrar_aluno($nome, $email, $id_curso, $id_turma, $ano_letivo, $sexo
 
     $declaracao->execute();
 
-    header('Location:index.html');
+    header('Location:form_aluno.html');
 }
 
 function get_usuarios()
@@ -73,7 +73,7 @@ function atualizar_aluno($nome, $email, $id_turma,$id_curso, $ano_letivo, $sexo,
     $retorno = $declaracao->execute();
 
     if ($retorno) {
-        header('Location:lista_de_alunos.php');
+        header('Location:atualizar_alunos.php');
     }
 }
 function excluir_aluno($num_matricula)
@@ -87,7 +87,7 @@ function excluir_aluno($num_matricula)
     $retorno = $declaracao->execute();
 
     if($retorno){
-        header('Location:lista_De_alunos.php');
+        header('Location:atualizar_aluno.php');
     }else{
         echo "Erro ao deletar o aluno";
     }
