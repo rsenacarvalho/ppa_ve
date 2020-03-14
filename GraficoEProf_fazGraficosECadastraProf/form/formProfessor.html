@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  
+    <!-- Theme CSS -->
+    <link href="../css/freelancer.min.css" rel="stylesheet">
+
+    <body class="bg-color">
+        
+        <div class="container-fluid h-100">
+            <div class="row form-cadastro justify-content-center">
+                <div class="col-3 align-self-center area-form border">
+                   
+                    <div class="row justify-content-center mb-4">
+                        <img src="ifbalogo.png" alt="">
+                    </div>
+
+                    <span class="small d-block text-center">Cadastre-se com sua conta <b>Google</b></span>
+                    <button typle="button"class="btn btn-info  btn-block mt-2"style="background-color: teal">Google</button>
+                    
+
+                    <span class="small d-block text-center">ou</span>
+                    <span class="small d-block text-center">Crie um novo cadastro</span>
+
+                    <form method="POST" action="../php/cadastroProfessor.php">
+                        <div class="input-group mt-2">
+                            <input id="nome" name="nome" type="text" class="form-control bg-light btn-outline-secondary" placeholder="Nome completo">
+                        </div>
+                        <div class="input-group mt-2">
+                            <input id="matricula" name="matricula" type="text" class="form-control bg-light btn-outline-secondary" placeholder="Número de matrícula">
+                        </div>
+                        <div class="input-group mt-2">
+                            <input id="email" name="email" type="email" class="form-control bg-light btn-outline-secondary" placeholder="Email">
+                        </div>
+                        <div class="input-group mt-2">
+                            <input id="senha" name="senha" type="password" class="form-control bg-light btn-outline-secondary" placeholder="**********">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-secondary  btn-block mt-2">
+                                    Cancelar
+                                </button>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <input type="submit">
+                            </div>
+                        </div>
+                    </form>
+
+                    <button type="button"class="btn btn-info  btn-block mt-2" style="background-color: teal">Já tenho uma conta</button>
+                   
+
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+</head>

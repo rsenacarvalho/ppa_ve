@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+
+    <title>PPA</title>
+     <!-- Custom fonts for this theme -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Theme CSS -->
+  <link href="css/freelancer.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="form/style.css">
+
+
+<body class="bg-color">
+  
+
+
+
+
+
+   
+            
+           
+
+           
+
+
+
+
+          <div class="container-fluid h-100">
+            <div class="row form-cadastro justify-content-center"></div>
+                <div class="col-5 align-self-center area-form border">
+                   
+                    <div class="row justify-content-center mb-4">
+                      <div id="area_grafico"></div>
+                    </div>
+
+                    <span class="small d-block text-center">Insira os dados para criar um <b>Gráfico</b></span>
+                    <button type="button"class="btn btn-info  btn-block mt-2"style="background-color: teal" onclick="desenharGrafico2()">Inserir gráfico de pizza</button>
+                    
+                    
+                    
+                    <span class="small d-block text-center">Dados:</span>
+
+                    <form action="">
+                        <div class="input-group mt-2">
+                            <input id="tituloGrafico" type="text" class="form-control bg-light btn-outline-secondary" placeholder="Títuto do gráfico ">
+                        </div>
+                        <div class="input-group mt-2">
+                            <input id="tituloDado1" type="text" class="form-control bg-light btn-outline-secondary" placeholder="Títuto do dado 1 ">
+                        </div>
+                        <div class="input-group mt-2">
+                            <input id="dado1" type="number" class="form-control bg-light btn-outline-secondary" placeholder="Dado 1 ">
+                        </div>
+                        <div class="input-group mt-2">
+                            <input id="tituloDado2" type="text" class="form-control bg-light btn-outline-secondary" placeholder="Título do dado 2 ">
+                        </div>
+                        <div class="input-group mt-2">
+                          <input id="dado2" type="number" class="form-control bg-light btn-outline-secondary" placeholder="Dado 2 ">
+                      </div>
+                      <div id="divDados"class="input-group mt-2" style="display: flex;flex-direction:column;background-color: black;flex: 200 200 200;">
+                        
+                      </div>
+                      
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="button" class="btn btn-secondary  btn-block mt-2">
+                                    Cancelar
+                                </button>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <button onclick="desenharGrafico1()" type="button" class="btn btn-info btn-block mt-2" style="background-color: green">
+                                    Inserir gráfico de linha
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <button onclick="AdicionarElementos()" type="button"class="btn btn-info  btn-block mt-2" style="background-color: teal">Adicionar mais dados</button>
+                    <button onclick="criarPDF()" type="button"class="btn btn-info  btn-block mt-2" style="background-color: teal">Exportar para PDF</button>
+
+                </div>
+            </div>
+
+        </div>
+
+  
+ <!-- Carregar a API do google -->
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+ <!-- Preparar a geracao do grafico -->
+ <script type="text/javascript">
+
+   // Carregar a API de visualizacao e os pacotes necessarios.
+   google.load('visualization', '1.0', {'packages':['corechart']});
+
+   // Especificar um callback para ser executado quando a API for carregada.
+   google.setOnLoadCallback(desenharGrafico2);
+   
+   /**
+    * Funcao que preenche os dados do grafico
+    */
+
+    function desenharGrafico1(){ /* funcao do grafico em linha*/
+     var tituloGrafico = document.getElementById("tituloGrafico").value;
+     var tituloDado1 = document.getElementById("tituloDado1").value;
+     var dado1 = document.getElementById("dado1").value;
+     var tituloDado2 = document.getElementById("tituloDado2").value;
+     var dado2 = document.getElementById("dado2").value;
+
+     var tabela = new google.visualization.DataTable();
+            tabela.addColumn('string', 'Gênero');
+            tabela.addColumn('number', 'Dados');
+          
+            
+            dado1= parseFloat(dado1);
+            dado2= parseFloat(dado2);
+            
+            tabela.addRows([
+            [tituloDado1, dado1],
+            [tituloDado2, dado2]
+
+            ]);
+            var config = {
+            'title':tituloGrafico,
+            'width':600,
+            'height':500
+     };
+                
+            var grafico = new google.visualization.LineChart(document.getElementById('area_grafico'));
+            
+            grafico.draw(tabela, config);
+
+  }
+
+   function desenharGrafico2() {//grafico pizza
+
+     var tituloGrafico = document.getElementById("tituloGrafico").value;
+     var tituloDado1 = document.getElementById("tituloDado1").value;
+     var dado1 = document.getElementById("dado1").value;
+     var tituloDado2 = document.getElementById("tituloDado2").value;
+     var dado2 = document.getElementById("dado2").value;
+
+     
+
+     
+     
+     
+    // Montar os dados usados pelo grafico
+    var dados = new google.visualization.DataTable();
+     dados.addColumn('string', 'Gênero');
+     dados.addColumn('number', 'Quantidades');
+
+     if(cont==2){
+      dado1= parseFloat(dado1);
+      dado2= parseFloat(dado2);
+   
+      dados.addRows([
+       [tituloDado1, dado1],
+       [tituloDado2, dado2]
+       
+      ]);
+    }else if(cont==3){
+      var tituloDado3 = document.getElementById("tituloDado3").value;
+     var dado3 = document.getElementById("dado3").value;
+      dado1= parseFloat(dado1);
+      dado2= parseFloat(dado2);
+      dado3= parseFloat(dado3);
+      dados.addRows([
+       [tituloDado1, dado1],
+       [tituloDado2, dado2],
+       [tituloDado3, dado3]
+     ]);
+    }else if(cont==4){
+      tituloDado3 = document.getElementById("tituloDado3").value;
+      dado3 = document.getElementById("dado3").value;
+      var tituloDado4 = document.getElementById("tituloDado4").value;
+      var dado4 = document.getElementById("dado4").value;
+      dado1= parseFloat(dado1);
+      dado2= parseFloat(dado2);
+      dado3= parseFloat(dado3);
+      dado4= parseFloat(dado4);
+      dados.addRows([
+       [tituloDado1, dado1],
+       [tituloDado2, dado2],
+       [tituloDado3, dado3],
+       [tituloDado4, dado4]
+      ]);
+    }else if(cont==5){
+      tituloDado3 = document.getElementById("tituloDado3").value;
+      dado3 = document.getElementById("dado3").value;
+      tituloDado4 = document.getElementById("tituloDado4").value;
+      dado4 = document.getElementById("dado4").value;
+      var tituloDado5 = document.getElementById("tituloDado5").value;
+      var dado5 = document.getElementById("dado5").value;
+      dado1= parseFloat(dado1);
+      dado2= parseFloat(dado2);
+      dado3= parseFloat(dado3);
+      dado4= parseFloat(dado4);
+      dado5= parseFloat(dado5);
+      dados.addRows([
+       [tituloDado1, dado1],
+       [tituloDado2, dado2],
+       [tituloDado3, dado3],
+       [tituloDado4, dado4],
+       [tituloDado5, dado5]
+      ]);
+    }else if(cont==6){
+      tituloDado3 = document.getElementById("tituloDado3").value;
+      dado3 = document.getElementById("dado3").value;
+      tituloDado4 = document.getElementById("tituloDado4").value;
+      dado4 = document.getElementById("dado4").value;
+      tituloDado5 = document.getElementById("tituloDado5").value;
+      dado5 = document.getElementById("dado5").value;
+      var tituloDado6 = document.getElementById("tituloDado6").value;
+      var dado6 = document.getElementById("dado6").value;
+      dado1= parseFloat(dado1);
+      dado2= parseFloat(dado2);
+      dado3= parseFloat(dado3);
+      dado4= parseFloat(dado4);
+      dado5= parseFloat(dado5);
+      dado6= parseFloat(dado6);
+      dados.addRows([
+       [tituloDado1, dado1],
+       [tituloDado2, dado2],
+       [tituloDado3, dado3],
+       [tituloDado4, dado4],
+       [tituloDado5, dado5],
+       [tituloDado6, dado6]
+      ]);
+    }else{
+      alert("erro");
+    }
+     
+
+    
+
+     
+     
+
+     // Configuracoes do grafico
+     var config = {
+         'title':tituloGrafico,
+         'width':400,
+         'height':300
+     };
+
+     // Instanciar o objeto de geracao de graficos de pizza,
+     // informando o elemento HTML onde o grafico sera desenhado.
+     var chart = new google.visualization.PieChart(document.getElementById('area_grafico'));
+
+     // Desenhar o grafico (usando os dados e as configuracoes criadas)
+     chart.draw(dados, config);
+   }
+
+   function criarPDF(){
+
+    var meuGrafico = document.getElementById("area_grafico").innerHTML;
+
+        // CRIA UM OBJETO WINDOW
+        var win = window.open('', '', 'height=700,width=700');
+
+    win.document.write('<html><head>');
+    win.document.write('<title>PDF</title>');   // <title> CABEÇALHO DO PDF.
+    // INCLUI UM ESTILO NA TAB HEAD
+    win.document.write('</head>');
+    win.document.write('<body>');
+    win.document.write(meuGrafico);// O CONTEUDO DA TABELA DENTRO DA TAG BODY
+    win.document.write('</body></html>');
+
+    win.document.close(); // FECHA A JANELA
+
+    win.print();   
+}
+
+var i = 2;
+var cont = 2;
+function AdicionarElementos(){
+   
+    i = i+1;
+    cont++;
+    var divDados = document.getElementById("divDados");
+
+    var elementInputText = document.createElement("input");
+    elementInputText.id="tituloDado"+cont;
+    elementInputText.className="form-control bg-light btn-outline-secondary";
+    elementInputText.placeholder="Título dado "+i;
+    
+   
+    
+   
+
+    var elementBr = document.createElement("br");
+    
+
+    var elementInputNumber = document.createElement("input");
+    elementInputNumber.id="dado"+cont;
+    elementInputNumber.type="number";
+    elementInputNumber.className="form-control bg-light btn-outline-secondary";
+    elementInputNumber.placeholder="Dado"+i;
+    elementInputNumber.width="100%";
+
+    
+    divDados.appendChild(elementInputText);
+   
+    divDados.appendChild(elementInputNumber);
+    elementInputNumber=parseFloat(elementInputNumber);
+    divDados.appendChild(elementBr);
+   
+
+   
+
+    
+}
+ </script>
+
+
+</body>
+
+   
+  </head>
+
+
+</html>
