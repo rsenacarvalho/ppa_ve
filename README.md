@@ -1,2 +1,1 @@
-# ppa_ve
-Prática Profissional Articula - Virtual Environment
+# PPA-GIT

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>Projeto PPA</title>
+    <style>
+        body {
+            margin-top: px;
+            margin-bottom: 100px;
+            margin-right: 150px;
+            margin-left: 80px;
+        }
+        
+        fieldset {
+            border-radius: 5px;
+        }
+        
+        a:link,
+        a:visited {
+            background-color: #00FA9A;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+        }
+        
+        a:hover,
+        a:active {
+            background-color: #006400;
+            border-radius: 5px;
+        }
+        
+        input[type=text],
+        input[type=email] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        
+        div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        
+        h2 {
+            text-align: center;
+            background-color: #4682B4;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2> Cadastrar nova Disciplina</h2>
+    <div>
+        <fieldset>
+            <legend>Dados da Disciplina</legend>
+            <form method="POST" action="formulario_disciplina.php">
+                <label for="nomeDaDisc">Disciplina:</label>
+                <input size="300" placeholder="Insira a Disciplina" type="text" id="nomeDaDisc" name="nomeDaDisc"><br>
+                <label for="nomeDaProf">Professor(a):</label>
+                <input size="300" placeholder="Insira o Nome do Professor" type="text" id="nomeDaProf" name="nomeDaProf"><br>
+                <label for="descricao">Descrição:</label>
+                <input size="300" placeholder="Insira a Descrição" type="text" id="descricao" name="descricao"><br>
+                <input type="submit" value="Cadastrar">
+            </form>
+        </fieldset>
+        <br>
+        <a href="index_disciplina.php">Disciplina cadastradas</a>
+    </div>
+
+</body>
+
+</html>
