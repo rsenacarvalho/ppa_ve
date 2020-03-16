@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>PPA</title>
+    <style>
+        body {
+            margin-top: px;
+            margin-bottom: 100px;
+            margin-right: 150px;
+            margin-left: 80px;
+        }
+        
+        fieldset {
+            border-radius: 5px;
+        }
+        
+        a:link,
+        a:visited {
+            background-color: #00FA9A;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+        }
+        
+        a:hover,
+        a:active {
+            background-color: #006400;
+            border-radius: 5px;
+        }
+        
+        input[type=text],
+        input[type=email] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        input[type=submit] {
+            width: 100%;
+            background-color: palevioletred;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        
+        div {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <div>
+       
+
+  <h1>A Prática Profissional Articulada(PPA)</h1>
+        
+ <fieldset>
+            <legend>Indentificação do Projeto</legend>
+            <form method="POST" action="formulario_proj.php">
+
+                <label for="titulo">Título:</label>
+                <input size="300" id="titulo" name="titulo" ><br>
+                
+
+                
+                <label for="tema">Tema:</label>
+                <input size="300" id="tema" name="tema"><br>
+                <label for="questão-Problema">Questão-Problema:</label>
+                <input size="300" id="problema" name="problema" ><br>
+                <label for="justificativa">Justificativa:</label>
+                <input size="300" id="justificativa" name="justificativa"><br>
+
+                
+                
+                <label for="Objetivos Geral">Objetivo Geral::</label>
+                <input size="300" id="objetivogeral" name="objetivogeral"><br>
+                <label for="objetivos Específicos:">Objetivos Específicos:</label>
+                <input size="300" id="objetivosespecificos" name="objetivosespecificos"><br>
+
+
+
+                
+                <label for="carga Horária">Carga horária:</label>
+                <input size="300" id="horaria" name="horarias" ><br>
+                <label for="atividades">Atividades:</label>
+                <input size="300" id="atividades" name="atividades"><br>
+
+              
+          
+                <label for="avaliação do projeto">Avaliação do projeto:</label>
+                <input size="300" id="projeto" name="projeto"><br>
+
+                <label for="produto final">Produto final:</label>
+                <input size="300" id="produto" name="produto"><br>
+            
+                </fieldset>
+                
+
+                
+            
+                <input type="submit" value="Enviar">
+            </form>
+        </fieldset>
+        <br>
+        <a href="index_proj.php">Projetos Cadastrado (PPA)</a>
+    </div>
+
+</body>
+
+</html>
